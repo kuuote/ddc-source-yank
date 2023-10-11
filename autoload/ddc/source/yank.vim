@@ -15,6 +15,7 @@ function ddc#source#yank#register(type) abort
   if a:type ==# 'block'
     call map(data, 'v:val[:b[2] - 1][a[2] - 1:]')
   endif
+  call map(data, 'trim(v:val)')
   call extend(s:register, data)
   echo len(data) .. ' lines yanked'
 endfunction
