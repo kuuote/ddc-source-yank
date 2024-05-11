@@ -7,7 +7,7 @@ endfunction
 let s:map = #{ char: 'v', line: 'V', block: "\<C-v>" }
 
 function ddc#source#yank#register(type) abort
-  let data = getregion(getpos('.'), getpos('v'), #{ type: s:map[a:type] })->map('trim(v:val)')
+  let data = getregion(getpos("'["), getpos("']"), #{ type: s:map[a:type] })->map('trim(v:val)')
   call extend(s:register, data)
   echo len(data) .. ' lines yanked'
 endfunction
